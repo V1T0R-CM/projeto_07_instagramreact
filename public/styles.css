@@ -65,6 +65,11 @@ h6{
 
 .icones{
     font-size: 24px;
+    visibility: inherit;
+}
+
+.like{
+    color: rgb(255, 100, 100);
 }
 
 .logo{
@@ -332,7 +337,6 @@ h6{
     margin-left: 20px;
     margin-right: 20px;
 }
-
 
 @media (max-width:935px){
     .coluna-dir{

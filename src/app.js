@@ -1,3 +1,5 @@
+import React from 'react'
+
 function Topbar(){
     return (
         <div class="topo">
@@ -52,6 +54,25 @@ function Boxstories(){
 }
 
 function Post(props){
+    const [like, setLike]=React.useState(<ion-icon name="heart-outline" class="icones" onClick={()=>toggle()}></ion-icon>)
+    let liked=false
+
+    function toggle(){
+        if(liked){
+            setLike(<ion-icon name="heart-outline" class="icones" onClick={()=>toggle()}></ion-icon>)
+            liked=false
+        }
+        else{
+            setLike(<ion-icon name="heart" class="icones like" onClick={()=>toggle()}></ion-icon>)
+            liked=true
+        }
+    }
+
+    function turnOn(){
+        setLike(<ion-icon name="heart" class="icones like" onClick={()=>toggle()}></ion-icon>)
+        liked=true
+    }
+
     return (
         <div class="post">
             <div class="topo-post">
@@ -61,10 +82,10 @@ function Post(props){
                 </div>
                 <ion-icon name="ellipsis-horizontal" class="icones"></ion-icon>
             </div>
-            <img src={props.postimg}/>
+            <img src={props.postimg} onClick={()=>turnOn()}/>
             <div class="acoes-post">
                 <div class="acoes-dir">
-                    <ion-icon name="heart-outline" class="icones"></ion-icon>
+                    {like}
                     <ion-icon name="chatbubble-outline" class="icones"></ion-icon>
                     <ion-icon name="paper-plane-outline" class="icones"></ion-icon>
                 </div>
